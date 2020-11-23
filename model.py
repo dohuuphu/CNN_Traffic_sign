@@ -18,10 +18,10 @@ class Network(nn.Module):
         self.conv3 = nn.Conv2d(16, 32, 3, 1, 1)
         self.conv4 = nn.Conv2d(32, 64, 3, 1, 1)
         self.conv5 = nn.Conv2d(64, 128, 3, 1, 1)
-        self.cbam = CBAM(32, 16)
+        self.cbam = CBAM(32, 2)
         self.dropout1 = nn.Dropout(0.5)
         self.dropout2 = nn.Dropout(0.5)
-        self.fc1 = nn.Linear(1152, 512) # stride 1: 2304, 2:512
+        self.fc1 = nn.Linear(1152, 6) # stride 1: 2304, 2:512
         self.fc2 = nn.Linear(512, 5)
         self.fc3 = nn.Linear(512, 6)
 
@@ -48,9 +48,9 @@ class Network(nn.Module):
         x = self.dropout1(x)
         #x = torch.flatten(x, 1)
         x = self.fc1(x)
-        x = F.leaky_relu(x)
-        x = self.dropout2(x)
-        x = self.fc2(x)
+        # x = F.relu(x)
+        # x = self.dropout2(x)
+        # x = self.fc2(x)
 
         # x = F.leaky_relu(x)
         # x = self.dropout2(x)

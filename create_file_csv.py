@@ -23,7 +23,7 @@ with open('data_train.csv', 'a') as csvfile:
     writer = csv.writer(csvfile)
     for i in range(0, num_train):
         img_path = img_name_train[i]
-        folder = 'ahead', 'stop', 'none', 'right', 'noleft'
+        folder = 'ahead.', 'stop.', 'none.', 'right.', 'noleft.'
         for i,fd in enumerate(folder):
         	if fd in img_path:
 	        	cls_gt = i
@@ -34,7 +34,7 @@ with open('data_test.csv', 'a') as csvfile:
     writer = csv.writer(csvfile)
     for i in range(num_train, num_img):
         img_path = img_name_train[i]
-        folder = 'ahead', 'stop', 'none', 'right', 'noleft'
+        folder = 'ahead.', 'stop.', 'none.', 'right.', 'noleft.'
         for i,fd in enumerate(folder):
 	        if fd in img_path:
 	            cls_gt = i

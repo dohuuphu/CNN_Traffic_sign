@@ -13,7 +13,7 @@ rights = cv2.CascadeClassifier('haar_cascade/Right.xml')
 aheads = cv2.CascadeClassifier('haar_cascade/Ahead.xml')
 # path = "3.png"
 # img_read = cv2.imread(path)
-foder = 'right'   #ahead: 14, noright: 12, none: 124, 
+foder = 'none'   #ahead: 14, noright: 12, none: 124, 
 
 path = './dataset/test_data/'+str(foder) #stop -> right, ahead-> stop, right -> stop
 test_img = os.listdir(path)
@@ -165,7 +165,7 @@ def Run_Predict(img_input):
     print('right: ',right)
     print('noleft: ', noleft)
     print('none: ',none )
-    print('total wrong_pre: ',len(test_img) -  right)
+    print('total wrong_pre: ',len(test_img) -  stop)
     print("avg_fps: ", 1/(avg_time/len(test_img)))
 
     # rs=  Predict(img_input)
